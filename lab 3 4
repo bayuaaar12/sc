@@ -1,0 +1,99 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOk+D1IksYis1aEc8x1Dshb",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/bayuaaar12/sc/blob/main/lab%203%204\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NiHEZwHwB-7L",
+        "outputId": "d34fed6a-aa01-4ada-9080-8ff73ccb570e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Eigenvalue: 3.999949137887188\n",
+            "Eigenvector: [0.50000636 1.        ]\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "def normalize(x):\n",
+        "  fac = abs(x).max()\n",
+        "  x_n = x / x.max()\n",
+        "  return fac, x_n\n",
+        "x = np.array([1,1])\n",
+        "a = np.array([[0,2],[2,3]])\n",
+        "\n",
+        "for i in range(8):\n",
+        "  x = np.dot(a,x)\n",
+        "  lambda_1, x = normalize(x)\n",
+        "\n",
+        "print('Eigenvalue:', lambda_1)\n",
+        "print('Eigenvector:', x)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from numpy.linalg import inv\n",
+        "a_inv = inv(a)\n",
+        "\n",
+        "for i in range(8):\n",
+        "  x = np.dot(a_inv, x)\n",
+        "  lambda_1,x = normalize(x)\n",
+        "\n",
+        "print('Eigenvalue:', lambda_1)\n",
+        "print('Eigenvalue:', x)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9xMNampTEGYs",
+        "outputId": "4fc9ed62-3672-4f0c-e7ff-f7b1f3850125"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Eigenvalue: 0.20000000000024853\n",
+            "Eigenvalue: [1. 1.]\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
