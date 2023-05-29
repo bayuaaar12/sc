@@ -1,0 +1,149 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOlQxX+WNYfouFUnsSR5L4i",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/bayuaaar12/sc/blob/main/LAB%204\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Import numpy as np\n",
+        "\n",
+        "f= lambda x: ×**2 - 2\n",
+        "f prime = lambda x: 2*x\n",
+        "newton raphson = 1.4\n",
+        "(f (1.4))/ (f_prime (1.4))\n",
+        "print (\"newton_raphson =\", newton raphson) print (\"sqrt (2) =\", np.agrt (2))"
+      ],
+      "metadata": {
+        "id": "eFLUOFgfAwQp"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def my newton (f, df, x0, tol) :\n",
+        "   if output is an estimation of the root of f\n",
+        "# using the Newton Raphson method\n",
+        "# recursive implementation if abs (f(x0)) < tol:\n",
+        "   return x0 \n",
+        "else:\n",
+        "   return my_ newton (f, df, x0 - f(x0) /df(x0), tol)"
+      ],
+      "metadata": {
+        "id": "JzulobBgBCG6"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "estimate = my newton (f,f_prime, 1.5, 1e-6)\n",
+        "print(\"estimate =\", estimate)\n",
+        "print(\"sqrt (2) =\", np.sqrt (2))"
+      ],
+      "metadata": {
+        "id": "DyjA8xRHBPA0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "3Hy-9-WHAFfm"
+      },
+      "outputs": [],
+      "source": [
+        "def my_newton(f, df, x0, tol):\n",
+        "    # output is an estimation of the root of f \n",
+        "    # using the Newton Raphson method\n",
+        "    # recursive implementation\n",
+        "    if abs(f(x0)) < tol:\n",
+        "        return x0\n",
+        "    else:\n",
+        "        return my_newton(f, df, x0 - f(x0)/df(x0), tol)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "mport numpy as np\n",
+        "\n",
+        "def my_bisection(f, a, b, tol):\n",
+        "    # approximates a root, R, of f bounded \n",
+        "    # by a and b to within tolerance \n",
+        "    # | f(m) | < tol with m the midpoint \n",
+        "    # between a and b Recursive implementation\n",
+        "\n",
+        "    # check if a and b bound a root\n",
+        "    if np.sign(f(a)) == np.sign(f(b)):\n",
+        "      raise Exception(\n",
+        "        \"The scalars a and b do not bound a root\")\n",
+        "\n",
+        "    # get midpoint\n",
+        "    m = (a + b)/2\n",
+        "\n",
+        "    if np.abs(f(m)) < tol:\n",
+        "        # stopping condition, report m as root\n",
+        "        return m\n",
+        "    elif np.sign(f(a)) == np.sign(f(m)):\n",
+        "        # case where m is an improvement on a. \n",
+        "        # Make recursive call with a = m\n",
+        "        return my_bisection(f, m, b, tol)\n",
+        "    elif np.sign(f(b)) == np.sign(f(m)):\n",
+        "        # case where m is an improvement on b. \n",
+        "        # Make recursive call with b = m\n",
+        "        return my_bisection(f, a, m, tol)"
+      ],
+      "metadata": {
+        "id": "TRh-YhfwAvVL"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "f = lambda x: x**2 - 3*x + 1\n",
+        "r1 = my_bisection(f, 0, 2, 0.1)\n",
+        "print(\"r1 =\", r1)\n",
+        "r01 = my_bisection(f, 0, 2, 0.02)\n",
+        "print(\"r01 =\", r01)\n",
+        "print(\"f(r1) =\", f(r1))\n",
+        "print(\"f(r01) =\", f(r01))"
+      ],
+      "metadata": {
+        "id": "iaaUgmJvBlpI"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
